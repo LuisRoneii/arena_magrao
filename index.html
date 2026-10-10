@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Sem script inline: tudo vem de js/. localhost:3000 é a API rodando no PC (Live Server). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' http://localhost:3000; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>Arena do Magrão — Quadra de society com reserva online</title>
+<meta name="description" content="Arena do Magrão: quadra de society para jogos, torneios e eventos. Veja os horários livres e reserve online em um minuto, sem cadastro. Horário fixo para mensalistas.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/barlow-condensed-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Open Graph (prévia ao compartilhar o link no WhatsApp e no Instagram).
+     [PREENCHER: foto da quadra para o og:image] e, no deploy, trocar pelo endereço completo
+     (https://dominio/img/...), que é o que o WhatsApp exige. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Arena do Magrão">
+<meta property="og:title" content="Arena do Magrão — Futebol, resenha e lazer">
+<meta property="og:description" content="Quadra de society com reserva online. Veja os horários livres e marque o seu jogo.">
+<meta property="og:image" content="img/logo.png">
+
+<!-- Dados estruturados para o Google. Endereço e telefone entram quando a Arena confirmar. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "name": "Arena do Magrão",
+  "description": "Quadra de society para jogos, torneios e eventos, com lanches, porções e bebidas.",
+  "sport": "Futebol society",
+  "image": "img/logo.png",
+  "sameAs": ["https://www.instagram.com/arena_do_magrao/"]
+}
+</script>
+</head>
+<body>
+
+<a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Desenho do campo, usado como fundo sutil em algumas seções (<use href="#campo">) -->
+<svg class="sr-only" aria-hidden="true" focusable="false">
+  <symbol id="campo" viewBox="0 0 1200 700">
+    <g fill="none" stroke="currentColor" stroke-width="3">
+      <rect x="40" y="40" width="1120" height="620"/>
+      <line x1="600" y1="40" x2="600" y2="660"/>
+      <circle cx="600" cy="350" r="95"/>
+      <circle cx="600" cy="350" r="5" fill="currentColor"/>
+      <rect x="40" y="200" width="150" height="300"/>
+      <rect x="1010" y="200" width="150" height="300"/>
+      <path d="M190 290 a70 70 0 0 1 0 120"/>
+      <path d="M1010 290 a70 70 0 0 0 0 120"/>
+    </g>
+  </symbol>
+  <symbol id="icone-coroa" viewBox="0 0 64 44">
+    <path fill="currentColor" d="M4 12l14 12L32 2l14 22 14-12-6 28H10z"/>
+  </symbol>
+</svg>
+
+<!-- ===== TOPO ===== -->
+<header class="topo">
+  <div class="container topo__inner">
+    <a href="#conteudo" class="marca" aria-label="Arena do Magrão, início">
+      <img class="marca__logo" src="img/logo.webp" alt="" width="310" height="340">
+      <span class="marca__nome">Arena <span>do</span> Magrão</span>
+    </a>
+
+    <nav class="menu" aria-label="Principal">
+      <a href="#quadra">Quadra</a>
+      <a href="#precos">Preços</a>
+      <a href="#mensalistas">Mensalistas</a>
+      <a href="#agendar">Agendar</a>
+      <a href="#contato">Contato</a>
+      <a href="meus-agendamentos.html">Minhas reservas</a>
+    </nav>
+
+    <div class="topo__acoes">
+      <a href="#agendar" class="btn btn--neon btn--pequeno">Reservar horário</a>
+      <button class="hamburguer" id="hamburguer" type="button" aria-label="Abrir menu"
+              aria-expanded="false" aria-controls="menu-celular">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu-celular" id="menu-celular" aria-label="Menu">
+  <a href="#quadra">Quadra</a>
+  <a href="#precos">Preços</a>
+  <a href="#mensalistas">Mensalistas</a>
+  <a href="#agendar">Agendar</a>
+  <a href="#contato">Contato</a>
+  <a href="meus-agendamentos.html">Minhas reservas</a>
+</nav>
+
+<main id="conteudo">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <svg class="campo" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice"><use href="#campo"/></svg>
+    <div class="container hero__inner">
+      <img class="hero__logo" src="img/logo.webp" alt="Arena do Magrão" width="310" height="340">
+      <div>
+        <p class="etiqueta"><span>Quadra de society</span></p>
+        <h1 class="hero__titulo">
+          <span>O seu jogo</span>
+          <span class="amarelo">começa aqui</span>
+        </h1>
+        <p class="hero__texto">Veja os horários livres da quadra e reserve em menos de um minuto, sem cadastro e sem senha.</p>
+        <div class="hero__acoes">
+          <a href="#agendar" class="btn btn--neon">Reservar horário</a>
+          <a href="#mensalistas" class="btn btn--contorno">Quero ser mensalista</a>
+        </div>
+        <ul class="hero__fatos">
+          <li>Reserva de 1h, 1h30 ou 2h</li>
+          <li>Pagamento direto com a Arena</li>
+          <li>Horário fixo para mensalistas</li>
+        </ul>
+      </div>
+    </div>
+    <span class="preencher hero__foto-falta">[PREENCHER: foto da quadra à noite]</span>
+  </section>
+
+  <div class="faixa" aria-hidden="true">
+    <p class="faixa__texto">Futebol<span>•</span>Resenha<span>•</span>Lazer<span>•</span>Jogos<span>•</span>Torneios<span>•</span>Eventos</p>
+  </div>
+
+  <!-- ===== A QUADRA ===== -->
+  <section class="secao secao--superficie" id="quadra">
+    <div class="container">
+      <p class="etiqueta"><span>A quadra</span></p>
+      <h2>Futebol, resenha <span class="amarelo">e lazer</span></h2>
+      <p class="secao__sub">Uma quadra de society para o jogo da semana, o racha dos amigos e os torneios da Arena.</p>
+
+      <!-- [PREENCHER] fotos reais da quadra (WebP, loading="lazy"). Não usar as artes dos posts. -->
+      <ul class="galeria">
+        <li class="galeria__item"><span class="preencher">[PREENCHER: foto da quadra à noite, com os refletores]</span></li>
+        <li class="galeria__item"><span class="preencher">[PREENCHER: foto da quadra]</span></li>
+        <li class="galeria__item"><span class="preencher">[PREENCHER: foto da área da resenha]</span></li>
+      </ul>
+
+      <!-- só o que aparecer nas fotos ou a Arena confirmar -->
+      <p class="destaques"><span class="preencher">[PREENCHER: destaques confirmados, ex.: grama sintética, iluminação, vestiário, estacionamento]</span></p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Depois do jogo, <span class="neon">a resenha</span></h3>
+          <ul class="card__lista">
+            <li>Lanches</li>
+            <li>Porções</li>
+            <li>Bebidas</li>
+          </ul>
+          <p>A cozinha da Arena fica aberta para o pós-jogo. O pedido é feito direto no local.</p>
+        </article>
+
+        <article class="card" id="eventos">
+          <h3>Torneios <span class="amarelo">e eventos</span></h3>
+          <p>A Arena organiza jogos, torneios e eventos. Quer fazer um evento ou inscrever a sua equipe? Fale com a gente.</p>
+          <div class="card__acoes">
+            <a class="btn btn--contorno btn--pequeno" href="https://www.instagram.com/arena_do_magrao/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn btn--neon btn--pequeno" data-whatsapp="Olá! Quero saber sobre torneios e eventos na Arena do Magrão." href="#contato">WhatsApp</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PREÇOS ===== -->
+  <section class="secao" id="precos">
+    <div class="container">
+      <p class="etiqueta"><span>Preços</span></p>
+      <h2>Quanto custa <span class="amarelo">o seu jogo</span></h2>
+      <p class="secao__sub" id="precos-sub">O valor é por hora e depende do dia e do horário. Na reserva você já vê o total antes de confirmar.</p>
+
+      <div class="precos">
+        <article class="preco">
+          <p class="preco__tipo">Avulso</p>
+          <p class="preco__quando" id="preco-normal-quando">Carregando…</p>
+          <p class="preco__valor" id="preco-normal-valor"></p>
+        </article>
+
+        <article class="preco preco--nobre">
+          <p class="preco__tipo">Horário <span class="amarelo">nobre</span></p>
+          <p class="preco__quando" id="preco-nobre-quando">Carregando…</p>
+          <p class="preco__valor" id="preco-nobre-valor"></p>
+        </article>
+
+        <article class="preco preco--mensalista">
+          <svg class="coroa" aria-hidden="true" focusable="false" viewBox="0 0 64 44"><use href="#icone-coroa"/></svg>
+          <p class="preco__tipo">Mensalista</p>
+          <p class="preco__quando">O seu horário, todo mês.</p>
+          <p class="preco__valor" id="preco-mensal-valor"></p>
+          <ul class="preco__lista">
+            <li>Mesmo dia e horário toda semana, garantido</li>
+            <li>Valor fixo por mês: em mês com 5 semanas, você joga 5 vezes e paga o mesmo</li>
+            <li>Não vai jogar numa data? Avise a Arena e o horário fica livre naquele dia, sem mudar a mensalidade</li>
+          </ul>
+          <a href="#mensalistas" class="btn btn--neon">Quero ser mensalista</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AGENDAR ===== -->
+  <section class="secao secao--superficie" id="agendar">
+    <svg class="campo" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice"><use href="#campo"/></svg>
+    <div class="container">
+      <p class="etiqueta"><span>Agendar</span></p>
+      <h2>Reserve <span class="amarelo">seu horário</span></h2>
+      <p class="secao__sub">Escolha quanto tempo quer jogar, o dia e o horário. Depois é só informar seu nome e WhatsApp.</p>
+
+      <div class="agenda">
+        <p class="aviso-remarcar hidden" id="aviso-remarcar"></p>
+
+        <!-- Escolha: duração, semana, dia e horário -->
+        <div id="agenda-escolha">
+          <div class="agenda__bloco">
+            <p class="agenda__passo" id="rotulo-duracao"><span>1.</span> Quanto tempo?</p>
+            <div class="duracoes" id="duracoes" role="group" aria-labelledby="rotulo-duracao"></div>
+          </div>
+
+          <div class="agenda__bloco">
+            <p class="agenda__passo" id="rotulo-dia"><span>2.</span> Qual dia?</p>
+            <div class="semana">
+              <button type="button" class="semana__seta" id="semana-anterior" aria-label="Semana anterior">&#8249;</button>
+              <p class="semana__titulo" id="semana-titulo" aria-live="polite"></p>
+              <button type="button" class="semana__seta" id="semana-proxima" aria-label="Próxima semana">&#8250;</button>
+            </div>
+            <ul class="dias" id="dias" aria-labelledby="rotulo-dia"></ul>
+          </div>
+
+          <div class="agenda__bloco">
+            <p class="agenda__passo" id="rotulo-horario"><span>3.</span> Qual horário?</p>
+            <ul class="legenda">
+              <li class="legenda__livre">Livre</li>
+              <li class="legenda__nobre">Horário nobre</li>
+              <li class="legenda__ocupado">Ocupado</li>
+            </ul>
+            <ul class="horarios" id="horarios" aria-labelledby="rotulo-horario" aria-live="polite"></ul>
+            <p class="msg" id="msg-agenda" role="status"></p>
+          </div>
+
+          <!-- Dados do cliente: aparece depois de escolher o horário -->
+          <form class="agenda__bloco hidden" id="form-reserva" novalidate>
+            <p class="agenda__passo"><span>4.</span> Seus dados</p>
+            <div class="resumo" id="resumo"></div>
+            <div class="campos-lado">
+              <div class="campo-form">
+                <label for="reserva-nome">Seu nome</label>
+                <input type="text" id="reserva-nome" autocomplete="name" maxlength="150" required>
+              </div>
+              <div class="campo-form">
+                <label for="reserva-telefone">WhatsApp com DDD</label>
+                <input type="tel" id="reserva-telefone" autocomplete="tel" inputmode="numeric" placeholder="(47) 99999-0000" required>
+              </div>
+            </div>
+            <label class="aceite">
+              <input type="checkbox" id="reserva-aceite" required>
+              <span>Li e aceito a <a href="privacidade.html" target="_blank" rel="noopener">política de privacidade</a>. Meu nome e WhatsApp são usados só para esta reserva.</span>
+            </label>
+            <button type="submit" class="btn btn--neon" id="btn-reservar">Confirmar reserva</button>
+            <p class="msg" id="msg-reserva" role="status"></p>
+          </form>
+        </div>
+
+        <!-- Confirmação (só aparece depois de reservar) -->
+        <div class="confirmado hidden" id="confirmado" tabindex="-1">
+          <span class="confirmado__selo" aria-hidden="true">&#10003;</span>
+          <h3 class="confirmado__titulo" id="confirmado-titulo">Reserva confirmada!</h3>
+          <p class="confirmado__codigo">
+            <span>Número e código da reserva</span>
+            <strong id="confirmado-codigo"></strong>
+          </p>
+          <dl class="confirmado__dados" id="confirmado-dados"></dl>
+          <p class="confirmado__nota" id="confirmado-nota"></p>
+          <div class="confirmado__acoes">
+            <a class="btn btn--neon" id="btn-whatsapp-reserva" href="#contato" target="_blank" rel="noopener">Mandar no WhatsApp da Arena</a>
+            <p class="hidden" id="sem-whatsapp-reserva"><span class="preencher">[PREENCHER: WhatsApp da Arena, para o botão "Mandar no WhatsApp"]</span></p>
+            <a class="btn btn--contorno" href="meus-agendamentos.html">Ver minhas reservas</a>
+            <button type="button" class="btn btn--contorno" id="btn-nova-reserva">Reservar outro horário</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENSALISTAS ===== -->
+  <section class="secao" id="mensalistas">
+    <div class="container">
+      <p class="etiqueta"><span>Mensalistas</span></p>
+      <h2>O seu horário, <span class="amarelo">todo mês</span></h2>
+      <p class="secao__sub">Para quem joga toda semana com a mesma turma: o horário fica reservado para vocês, sem precisar marcar de novo.</p>
+
+      <div class="mensal">
+        <ol class="passos">
+          <li><strong>Você pede o horário</strong><p>Escolha o dia da semana, o horário e quanto tempo querem jogar.</p></li>
+          <li><strong>A Arena confirma no WhatsApp</strong><p>Nada fica reservado antes disso. A Arena confere a agenda e combina o valor e o vencimento.</p></li>
+          <li><strong>Horário fixo toda semana</strong><p>Depois de aprovado, o horário aparece como ocupado na agenda do site para todo mundo.</p></li>
+          <li><strong>Mensalidade fixa</strong><p>Uma cobrança por mês, com Pix ou no local. Mês com 5 semanas custa o mesmo.</p></li>
+        </ol>
+
+        <form class="form-caixa" id="form-mensalista" novalidate>
+          <h3>Quero ser <span class="neon">mensalista</span></h3>
+          <div class="campo-form">
+            <label for="mensal-nome">Seu nome</label>
+            <input type="text" id="mensal-nome" autocomplete="name" maxlength="150" required>
+          </div>
+          <div class="campo-form">
+            <label for="mensal-telefone">WhatsApp com DDD</label>
+            <input type="tel" id="mensal-telefone" autocomplete="tel" inputmode="numeric" placeholder="(47) 99999-0000" required>
+          </div>
+          <div class="campos-lado">
+            <div class="campo-form">
+              <label for="mensal-dia">Dia da semana</label>
+              <select id="mensal-dia" required></select>
+            </div>
+            <div class="campo-form">
+              <label for="mensal-duracao">Quanto tempo</label>
+              <select id="mensal-duracao" required></select>
+            </div>
+          </div>
+          <div class="campo-form">
+            <label for="mensal-horario">Horário de início</label>
+            <select id="mensal-horario" required></select>
+          </div>
+          <div class="campo-form">
+            <label for="mensal-obs">Observação <span class="campo-form__dica">(opcional)</span></label>
+            <textarea id="mensal-obs" maxlength="500" placeholder="Ex.: somos 14 jogadores, queremos começar em novembro"></textarea>
+          </div>
+          <label class="aceite">
+            <input type="checkbox" id="mensal-aceite" required>
+            <span>Li e aceito a <a href="privacidade.html" target="_blank" rel="noopener">política de privacidade</a>. Meu nome e WhatsApp são usados só para a Arena responder este pedido.</span>
+          </label>
+          <button type="submit" class="btn btn--neon" id="btn-mensalista">Enviar pedido</button>
+          <p class="msg" id="msg-mensalista" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section class="secao secao--superficie" id="contato">
+    <div class="container">
+      <p class="etiqueta"><span>Contato</span></p>
+      <h2>Onde <span class="amarelo">estamos</span></h2>
+
+      <ul class="contato">
+        <li>
+          <strong>Endereço</strong>
+          <p id="contato-endereco"><span class="preencher">[PREENCHER: endereço da Arena]</span></p>
+          <p id="contato-mapa"><span class="preencher">[PREENCHER: link do Google Maps]</span></p>
+        </li>
+        <li>
+          <strong>Funcionamento</strong>
+          <ul class="horario-lista" id="contato-funcionamento"><li>Carregando…</li></ul>
+        </li>
+        <li>
+          <strong>WhatsApp</strong>
+          <p id="contato-whatsapp"><span class="preencher">[PREENCHER: WhatsApp da Arena]</span></p>
+        </li>
+        <li>
+          <strong>Instagram</strong>
+          <p><a href="https://www.instagram.com/arena_do_magrao/" target="_blank" rel="noopener">@arena_do_magrao</a></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container rodape__inner">
+    <span class="marca">
+      <img class="marca__logo" src="img/logo.webp" alt="" width="310" height="340" loading="lazy">
+      <span>&copy; <span id="ano"></span> Arena do Magrão</span>
+    </span>
+    <nav class="rodape__links" aria-label="Rodapé">
+      <a href="meus-agendamentos.html">Minhas reservas</a>
+      <a href="privacidade.html">Política de privacidade</a>
+      <a href="painel.html">Área da Arena</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
