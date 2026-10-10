@@ -1,0 +1,28 @@
+{
+  "name": "arena-magrao-backend",
+  "version": "0.1.0",
+  "description": "API de reservas e mensalistas da Arena do Magrão",
+  "private": true,
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test --test-concurrency=1",
+    "criar-admin": "node scripts/criar-admin.js",
+    "gerar-mensalidades": "node scripts/gerar-mensalidades.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.1"
+  }
+}
